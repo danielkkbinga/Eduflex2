@@ -1,0 +1,1325 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keyword" content="quilengues, huíla">
+    <meta name="descrition" content="O site oficial do municipio de quilengues">
+    <title>Município de Quilengues</title>
+    <meta name="author" content="Daniel k. k. Binga">
+    <style>
+           /* aqui está as definições do estilo */
+      body {
+        
+            font-family: Arial, sans-serif;
+            text-aligh: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;          
+            margin-top: 70px;
+            aligh: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+      header h1{
+            background: linear-gradient(to top, red,yellow, #0000);
+            background-clip: text;
+            color: transparent;
+            font-size: 60px;
+            margin-top: 0;           
+      }
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 999;
+            top: 120px;
+            left: 0;
+            background-color: #555;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+        .sidebar a:hover {
+            background-color: #4a90e2;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 80px;
+            left: 0px;
+            z-index: 1001; /* Colocar acima do cabeçalho */
+        }
+      .openbtn: hover{
+          font-size: 40px;
+          width: 50%;
+      }
+        .main-content {
+            margin-top: 60px; /* Espaço para o cabeçalho fixo */
+            padding: 20px;
+        }
+        .section {
+            padding: 20px;
+            margin: 0;
+            background-color: #fff;
+            display: none; /* Ocultar inicialmente */
+        }
+        .intro {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: justify;
+             margin-top: 50px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            padding: 1rem;
+            width: 100%;
+            clear: both;
+            left: 0;
+        }
+        .contact-section {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-section h3 {
+            color: #333;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        .contact-info p, .contact-info a {
+            color: #555;
+            margin: 5px 0;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .social-icons a {
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 20%;
+        }
+          
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            margin-top: 20px;
+        }
+       .image-container {
+            text-align: center;
+            margin: 20px;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .news-section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .feed {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .feed-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .feed-item:last-child {
+            border-bottom: none;
+        }
+        .feed-item h2 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        .feed-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+        .feed-item img {
+            margin-top: 10px;
+            max-width: 100%;
+        }
+        .add-news-form {
+            margin-bottom: 20px;
+            display: none;
+        }
+        .add-news-form input, .add-news-form textarea, .add-news-form select {
+            width: calc(100% - 22px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .add-news-form button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .add-news-form button:hover {
+            background-color: #0056b3;
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .tab {
+            padding: 10px 20px;
+            background-color: #ddd;
+            margin-right: 5px;
+            border-radius: 4px;
+            flex: 1;
+            text-align: center;
+        }
+        .tab.active {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .search-bar input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .preview {
+            margin-bottom: 20px;
+        }
+      .historiac{
+            
+            padding: 21px;
+            background-color: #fff;
+            margin: 21px auto;
+            max-width: 801px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            
+      }
+      .service {
+            margin-bottom: 30px;
+        }
+
+        .service h3 {
+            margin-bottom: 10px;
+            color: #4facfe;
+        }
+
+        .service p {
+            margin-bottom: 10px;
+        }
+
+        .service a {
+            color: #00f2fe;
+            text-decoration: none;
+        }
+
+        .service a:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #4facfe;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #00f2fe;
+        }
+
+    </style>
+</head>
+<body onclick="closeSidebar(event)">
+
+<header>
+    <h1>QUILENGUES</h1>
+      <button class="openbtn" onclick="toggleSidebar(event)">☰ Menu</button>
+     
+</header>
+      <!-- aqui está o cabeçalho -->
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar(event)">×</a>
+    <a href="#intro" onclick="showSection('intro')">Introdução</a>
+    <a href="#sobre" onclick="showSection('sobre')">Sobre Nós</a>
+    <a href="#servicos" onclick="showSection('servicos')">Serviços</a>
+    <a href="#historia" onclick="showSection('historia')">História</a>
+    <a href="#noticias" onclick="showSection('noticias')">Notícias</a>
+    <a href="#contato" onclick="showSection('contato')">Contato</a>
+</div>
+
+<div class="main-content">
+      <!-- aqui está a secção da apresentação e é esta que aparece primeiro -->
+    <div class="section intro" id="intro">
+        <h2 style="text-align: center;">Bem-vindo ao Município de Quilengues</h2>
+        <p>Bem-vindo ao Município de Quilengues, um tesouro escondido na bela província da Huíla, Angola. Se você está procurando um lugar que combina natureza exuberante, uma comunidade acolhedora e oportunidades crescentes, Quilengues é o destino ideal para visitar, morar ou investir.</p>
+
+        <h4>Visite Quilengues</h4>
+        <p>Quilengues é uma joia natural que encanta os olhos e tranquiliza a alma. Explore nossas paisagens pitorescas, desde montanhas imponentes até vales verdejantes, perfeitas para caminhadas e aventuras ao ar livre. Nossas tradições culturais ricas e festividades vibrantes irão imergir você em uma experiência autêntica, onde a hospitalidade local é a estrela. Não perca a oportunidade de provar a nossa gastronomia única, que reflete a diversidade e a riqueza cultural da região.</p>
+
+        <h4>Morar em Quilengues</h4>
+        <p>Imagine viver em um lugar onde a vida é vivida em um ritmo mais tranquilo, mas com todas as comodidades modernas ao seu alcance. Quilengues oferece um ambiente seguro e saudável, ideal para famílias e indivíduos que procuram uma melhor qualidade de vida. Com escolas de qualidade, serviços de saúde eficientes e uma comunidade que valoriza a colaboração e o bem-estar, você encontrará aqui o lar que sempre sonhou. Além disso, a natureza ao redor proporciona um cenário perfeito para atividades ao ar livre e momentos de lazer.</p>
+
+        <h4>Investir em Quilengues</h4>
+        <p>Quilengues está em ascensão e representa uma excelente oportunidade para investidores visionários. Com uma economia local diversificada que abrange agricultura, turismo e pequenos negócios, há um vasto campo para investimentos lucrativos. O governo municipal está empenhado em criar um ambiente favorável para negócios, oferecendo incentivos e suporte aos empreendedores. A localização estratégica de Quilengues, com acesso fácil a outras regiões importantes, faz deste município um ponto de conexão para novas oportunidades de mercado.</p>
+        <p>Seja para uma visita inesquecível, uma mudança de vida ou um investimento promissor, Quilengues aguarda você de braços abertos. Venha descobrir tudo o que temos a oferecer e fazer parte do nosso futuro brilhante. Quilengues não é apenas um lugar, é uma experiência que vai cativar o seu coração e inspirar os seus sonhos.</p>
+
+    </div>
+    <div class="section" id="sobre">
+          <h2 id="sobre" style="text-align: center;">Sobre Nós</h2>
+        <h3>Sobre Nós</h3>
+        <p>O município de Quilengues é administrado por uma equipe dedicada e comprometida com o desenvolvimento e o bem-estar de nossa comunidade. Nossa administração municipal trabalha incansavelmente para garantir que Quilengues continue a ser um lugar próspero, seguro e acolhedor para todos os seus residentes.</p>
+          
+        <h4>Administração Municipal</h4>
+        <p>A administração municipal de Quilengues é composta por profissionais experientes e capacitados, cada um trazendo suas habilidades para diferentes áreas de atuação. Nosso objetivo é proporcionar serviços de qualidade e implementar políticas que beneficiem toda a população.</p>
+
+        <h4>Administrador Municipal</h4>
+        <p>À frente da nossa administração está o Administrador Municipal, Adriano Alberto Pedro, uma liderança visionária e dedicada que dirige nossas operações com integridade e paixão. Sob sua orientação, temos alcançado importantes avanços em infraestrutura, educação, saúde e segurança, sempre com o foco no desenvolvimento sustentável e na melhoria da qualidade de vida de nossos cidadãos.</p>
+
+        <p>O Administrador Municipal e sua equipe trabalham de mãos dadas com a comunidade para identificar necessidades, ouvir sugestões e implementar soluções eficazes. Através de uma gestão transparente e participativa, estamos construindo um futuro melhor para Quilengues, onde todos têm a oportunidade de prosperar e contribuir para o nosso crescimento coletivo.</p>
+
+        <p>Convidamos você a conhecer mais sobre os projetos e iniciativas da administração municipal, e a se juntar a nós na construção de um município cada vez melhor. Juntos, somos mais fortes e podemos alcançar grandes conquistas.</p>
+
+    </div>
+    <div class="section" id="servicos"> <h2 id="servicos" style="text-align: center;">Serviços Disponíveis no Município de Quilengues</h2>
+        <div class="container">
+        <div class="btn-container">
+            <button class="btn" onclick="toggleSection('energia')">Energia Elétrica</button>
+            <button class="btn" onclick="toggleSection('agua')">Água Canalizada</button>
+            <button class="btn" onclick="toggleSection('saude')">Saúde</button>
+            <button class="btn" onclick="toggleSection('seguranca')">Segurança Pública</button>
+        </div>
+
+        <div id="energia" class="service hidden">
+            <h3>Energia Elétrica</h3>
+              <!-- Fragmento de código para calcular e carregar comprovativo de pagamento com opção de copiar IBAN -->
+<div class="container">
+    <h2>Calculadora de Preço de Energia Elétrica</h2>
+    <form id="calculationForm">
+        <div class="form-group">
+            <label for="accountType">Tipo de Conta</label>
+            <select id="accountType" name="accountType" required>
+                <option value="empresarial">Empresarial</option>
+                <option value="domiciliar">Domiciliar</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="months">Número de Meses</label>
+            <input type="number" id="months" name="months" min="1" required>
+        </div>
+        <button type="submit" class="btn">Calcular Preço</button>
+    </form>
+
+    <div id="result" class="hidden">
+        <h3>Resultado do Cálculo</h3>
+        <p id="price"></p>
+    </div>
+
+    <h2>Carregar Comprovativo de Pagamento</h2>
+    <form id="paymentForm">
+        <div class="form-group">
+            <label for="accountNumber">Número da Conta</label>
+            <input type="text" id="accountNumber" name="accountNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="amount">Valor a Pagar</label>
+            <input type="number" id="amount" name="amount" required>
+        </div>
+        <div class="form-group">
+            <label for="paymentMethod">Método de Pagamento</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="cartao_credito">Cartão de Crédito</option>
+                <option value="paypal">PayPal</option>
+                <option value="transferencia_bancaria">Transferência Bancária</option>
+            </select>
+        </div>
+        <div class="form-group hidden" id="ibanField">
+            <label for="iban">IBAN</label>
+            <div style="display: flex;">
+                <input type="text" id="iban" name="iban" value="AO0060.0040.0000.0577.9198.1017.2" readonly>
+                <button type="button" class="btn" onclick="copyIBAN()">Copiar IBAN</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="comprovativo">Carregar Comprovativo de Pagamento</label>
+            <input type="file" id="comprovativo" name="comprovativo" accept="image/*, .pdf" required>
+        </div>
+        <button type="submit" class="btn">Carregar Comprovativo</button>
+    </form>
+
+    <div class="links">
+        <h3>Outros Serviços</h3>
+        <a href="http://exemplo.com/nova_conexao" target="_blank">Solicitar Nova Conexão</a>
+        <a href="http://exemplo.com/interrupcoes" target="_blank">Relatar Interrupções</a>
+        <a href="http://exemplo.com/consulta_fatura" target="_blank">Consultar Fatura</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById('calculationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const accountType = document.getElementById('accountType').value;
+        const months = parseInt(document.getElementById('months').value);
+
+        let pricePerMonth = 0;
+
+        if (accountType === 'empresarial') {
+            pricePerMonth = 7000;
+        } else if (accountType === 'domiciliar') {
+            pricePerMonth = 3500;
+        }
+
+        const totalPrice = pricePerMonth * months;
+
+        document.getElementById('price').textContent = `Total a pagar: ${totalPrice} Kz`;
+        document.getElementById('result').classList.remove('hidden');
+        document.getElementById('amount').value = totalPrice; // Preenche o valor calculado no campo de pagamento
+    });
+
+    document.getElementById('paymentMethod').addEventListener('change', function(event) {
+        const ibanField = document.getElementById('ibanField');
+        if (event.target.value === 'transferencia_bancaria') {
+            ibanField.classList.remove('hidden');
+        } else {
+            ibanField.classList.add('hidden');
+        }
+    });
+
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const paymentMethod = document.getElementById('paymentMethod').value;
+        
+        alert('Comprovativo de pagamento carregado com sucesso!');
+        // Aqui você pode adicionar o código para enviar o comprovativo ao servidor, se necessário.
+    });
+
+    function copyIBAN() {
+        const iban = document.getElementById('iban');
+        iban.select();
+        iban.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+        document.execCommand('copy');
+        alert('IBAN copiado para a área de transferência!');
+    }
+</script>
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 {
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #4facfe;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+        text-align: center;
+        margin-left: 10px;
+    }
+
+    .btn:hover {
+        background: #00f2fe;
+    }
+
+    .links {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .links a {
+        display: block;
+        margin-bottom: 10px;
+        color: #00f2fe;
+        text-decoration: none;
+    }
+
+    .links a:hover {
+        text-decoration: underline;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #result {
+        margin-top: 20px;
+    }
+
+    #price {
+        font-size: 18px;
+        color: #333;
+    }
+</style>
+            </div>
+
+        <div id="agua" class="service hidden">
+            <h3>Água Canalizada</h3>
+           <!-- Fragmento de código para calcular e carregar comprovativo de pagamento de água -->
+<div class="container">
+    <h2>Calculadora de Preço da Água</h2>
+    <form id="calculationFormAgua">
+        <div class="form-group">
+            <label for="accountTypeAgua">Tipo de Conta</label>
+            <select id="accountTypeAgua" name="accountTypeAgua" required>
+                <option value="empresarial">Empresarial</option>
+                <option value="domiciliar">Domiciliar</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="monthsAgua">Número de Meses</label>
+            <input type="number" id="monthsAgua" name="monthsAgua" min="1" required>
+        </div>
+        <button type="submit" class="btn">Calcular Preço</button>
+    </form>
+
+    <div id="resultAgua" class="hidden">
+        <h3>Resultado do Cálculo</h3>
+        <p id="priceAgua"></p>
+    </div>
+
+    <h2>Carregar Comprovativo de Pagamento</h2>
+    <form id="paymentFormAgua">
+        <div class="form-group">
+            <label for="accountNumberAgua">Número da Conta</label>
+            <input type="text" id="accountNumberAgua" name="accountNumberAgua" required>
+        </div>
+        <div class="form-group">
+            <label for="amountAgua">Valor a Pagar</label>
+            <input type="number" id="amountAgua" name="amountAgua" required>
+        </div>
+        <div class="form-group">
+            <label for="paymentMethodAgua">Método de Pagamento</label>
+            <select id="paymentMethodAgua" name="paymentMethodAgua" required>
+                <option value="cartao_credito">Cartão de Crédito</option>
+                <option value="paypal">PayPal</option>
+                <option value="transferencia_bancaria">Transferência Bancária</option>
+            </select>
+        </div>
+        <div class="form-group hidden" id="ibanFieldAgua">
+            <label for="ibanAgua">IBAN</label>
+            <div style="display: flex;">
+                <input type="text" id="ibanAgua" name="ibanAgua" value="AO0060.0040.0000.0577.9198.1017.2" readonly>
+                <button type="button" class="btn" onclick="copyIBAN('ibanAgua')">Copiar IBAN</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="comprovativoAgua">Carregar Comprovativo de Pagamento</label>
+            <input type="file" id="comprovativoAgua" name="comprovativoAgua" accept="image/*, .pdf" required>
+        </div>
+        <button type="submit" class="btn">Carregar Comprovativo</button>
+    </form>
+
+    <div class="links">
+        <h3>Outros Serviços</h3>
+        <a href="http://exemplo.com/nova_conexao" target="_blank">Solicitar Nova Conexão</a>
+        <a href="http://exemplo.com/interrupcoes" target="_blank">Relatar Interrupções</a>
+        <a href="http://exemplo.com/consulta_fatura" target="_blank">Consultar Fatura</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById('calculationFormAgua').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const accountType = document.getElementById('accountTypeAgua').value;
+        const months = parseInt(document.getElementById('monthsAgua').value);
+
+        let pricePerMonth = 0;
+
+        if (accountType === 'empresarial') {
+            pricePerMonth = 600;
+        } else if (accountType === 'domiciliar') {
+            pricePerMonth = 300;
+        }
+
+        const totalPrice = pricePerMonth * months;
+
+        document.getElementById('priceAgua').textContent = `Total a pagar: ${totalPrice} Kz`;
+        document.getElementById('resultAgua').classList.remove('hidden');
+        document.getElementById('amountAgua').value = totalPrice; // Preenche o valor calculado no campo de pagamento
+    });
+
+    document.getElementById('paymentMethodAgua').addEventListener('change', function(event) {
+        const ibanField = document.getElementById('ibanFieldAgua');
+        if (event.target.value === 'transferencia_bancaria') {
+            ibanField.classList.remove('hidden');
+        } else {
+            ibanField.classList.add('hidden');
+        }
+    });
+
+    document.getElementById('paymentFormAgua').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        alert('Comprovativo de pagamento carregado com sucesso!');
+        // Aqui você pode adicionar o código para enviar o comprovativo ao servidor, se necessário.
+    });
+
+    function copyIBAN(ibanId) {
+        const iban = document.getElementById(ibanId);
+        iban.select();
+        iban.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+        document.execCommand('copy');
+        alert('IBAN copiado para a área de transferência!');
+    }
+</script>
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 {
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #4facfe;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+        text-align: center;
+        margin-left: 10px;
+    }
+
+    .btn:hover {
+        background: #00f2fe;
+    }
+
+    .links {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .links a {
+        display: block;
+        margin-bottom: 10px;
+        color: #00f2fe;
+        text-decoration: none;
+    }
+
+    .links a:hover {
+        text-decoration: underline;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    #resultAgua {
+        margin-top: 20px;
+    }
+
+    #priceAgua {
+        font-size: 18px;
+        color: #333;
+    }
+</style>
+        </div>
+
+        <div id="mercado" class="service hidden">
+            <h3>Mercado Municipal</h3>
+            <p>O mercado municipal de Quilengues oferece uma variedade de produtos frescos e serviços. Para mais detalhes sobre os horários de funcionamento e eventos, clique no link abaixo.</p>
+            <a href="http://exemplo.com/mercado" target="_blank">Mais informações</a>
+        </div>
+
+        <div id="educacao" class="service hidden">
+            <h3>Educação</h3>
+            <p>Para informações sobre escolas públicas, matrículas e programas educacionais no município, visite o site do departamento de educação.</p>
+            <a href="http://exemplo.com/educacao" target="_blank">Mais informações</a>
+        </div>
+
+        <div id="saude" class="service hidden">
+            <h3>Saúde</h3>
+              <!-- Fragmento de código para agendamento de consultas e contatos de emergência -->
+<div class="container">
+    <h2>Agendamento de Consultas</h2>
+    <form id="appointmentForm">
+        <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefone</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="date">Data da Consulta</label>
+            <input type="date" id="date" name="date" required>
+        </div>
+        <div class="form-group">
+            <label for="time">Hora da Consulta</label>
+            <input type="time" id="time" name="time" required>
+        </div>
+        <div class="form-group">
+            <label for="doctor">Escolha o Médico</label>
+            <select id="doctor" name="doctor" required>
+                <option value="Dr. Silva">Dr. Silva</option>
+                <option value="Dra. Pereira">Dra. Pereira</option>
+                <option value="Dr. Santos">Dr. Santos</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="symptoms">Descreva Seus Sintomas</label>
+            <textarea id="symptoms" name="symptoms" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Agendar Consulta</button>
+    </form>
+
+    <h2>Contatos de Emergência</h2>
+    <ul>
+        <li>Emergência Médica: 112</li>
+        <li>Ambulância: 113</li>
+        <li>Hospital Central: +244 222 000 000</li>
+        <li>Clínica Médica: +244 222 111 111</li>
+    </ul>
+</div>
+
+<script>
+    document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const doctor = document.getElementById('doctor').value;
+        const symptoms = document.getElementById('symptoms').value;
+
+        const subject = "Agendamento de Consulta";
+        const body = `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone}\nData da Consulta: ${date}\nHora da Consulta: ${time}\nMédico Escolhido: ${doctor}\nSintomas: ${symptoms}`;
+        const mailtoLink = `mailto:suporte@clinicamedica.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoLink;
+
+        alert('Detalhes da consulta enviados por e-mail com sucesso!');
+    });
+</script>
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 {
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #4facfe;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+        text-align: center;
+        margin-left: 10px;
+    }
+
+    .btn:hover {
+        background: #00f2fe;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+        color: #333;
+    }
+</style>
+            </div>
+
+        <div id="seguranca" class="service hidden">
+            <h3>Segurança Pública</h3>
+              <!-- Fragmento de código para denúncias anônimas e contatos de emergência de segurança pública -->
+<div class="container">
+    <h2>Denúncias de Segurança Pública</h2>
+    <form id="reportForm">
+        <div class="form-group">
+            <label for="name">Nome Completo (Opcional)</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail (Opcional)</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Telefone (Opcional)</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="form-group">
+            <label for="report">Descreva a Denúncia</label>
+            <textarea id="report" name="report" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn">Enviar Denúncia</button>
+    </form>
+
+    <h2>Contatos de Emergência</h2>
+    <ul>
+        <li><a tel: 110></a></li>
+        <li>Bombeiros: 118</li>
+        <li>Guarda Nacional: +244 222 222 222</li>
+        <li>Centro de Emergência: +244 222 333 333</li>
+    </ul>
+</div>
+
+<script>
+    document.getElementById('reportForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const report = document.getElementById('report').value;
+
+        const subject = "Denúncia de Segurança Pública";
+        const body = `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone}\nDenúncia: ${report}`;
+        const mailtoLink = `mailto:seguranca@publica.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        window.location.href = mailtoLink;
+
+        alert('Denúncia enviada por e-mail com sucesso!');
+    });
+</script>
+
+<style>
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 {
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #4facfe;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+        text-align: center;
+        margin-left: 10px;
+    }
+
+    .btn:hover {
+        background: #00f2fe;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ul li {
+        margin-bottom: 10px;
+        color: #333;
+    }
+</style>
+        </div>
+    </div>
+      <script>
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('.service');
+            sections.forEach(section => section.classList.add('hidden'));
+
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.toggle('hidden');
+        }
+    </script>
+
+    </div>
+    <div class="section" id="noticias">
+          <!-- aqui está a secção de noticias -->
+        <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Digite aqui para pesquisar...">
+        <button onclick="performSearch()">Pesquisar</button>
+    </div>
+    <div class="tabs">
+        <div class="tab active" data-tab="news">Notícias</div>
+        <div class="tab" data-tab="events">Eventos</div>
+    </div>
+    <div class="feed" id="newsFeed">
+        <!-- Os itens de notícia serão inseridos aqui -->
+    </div>
+    <div class="add-news-form" id="addNewsForm">
+        <input type="text" id="newsTitle" placeholder="Título da Notícia">
+        <textarea id="newsDescription" placeholder="Descrição da Notícia"></textarea>
+        <select id="newsType">
+            <option value="noticia">Notícia</option>
+            <option value="evento">Evento</option>
+        </select>
+        <input type="file" id="newsFile" onchange="previewFile()">
+        <div class="preview" id="preview"></div>
+        <button onclick="addNews()">Adicionar Notícia</button>
+    </div>
+    <script>
+          //este é o js das noticias e aqui estão as noticias modelo
+        const newsData = [
+            {
+                title: "Título da Notícia 1",
+                description: "Descrição breve da notícia 1. Esse é um exemplo de como exibir notícias em um feed.",
+                file: null
+            },
+            {
+                title: "Título da Notícia 2",
+                description: "Descrição breve da notícia 2. Esse é um exemplo de como exibir notícias em um feed.",
+                file: null
+            }
+        ];
+
+        const eventsData = [
+            {
+                title: "Título do Evento 1",
+                description: "Descrição breve do evento 1. Esse é um exemplo de como exibir eventos em um feed.",
+                file: null
+            },
+            {
+                title: "Título do Evento 2",
+                description: "Descrição breve do evento 2. Esse é um exemplo de como exibir eventos em um feed.",
+                file: null
+            }
+        ];
+          // este é o js de insersão de noticias
+
+        function renderFeed(items) {
+            const feed = document.getElementById('newsFeed');
+            feed.innerHTML = '';
+            items.forEach(item => {
+                const feedItem = document.createElement('div');
+                feedItem.className = 'feed-item';
+                
+                const title = document.createElement('h2');
+                title.textContent = item.title;
+                
+                const description = document.createElement('p');
+                description.textContent = item.description;
+                
+                feedItem.appendChild(title);
+                feedItem.appendChild(description);
+
+                if (item.file && item.file.startsWith('data:image')) {
+                    const img = document.createElement('img');
+                    img.src = item.file;
+                    feedItem.appendChild(img);
+                }
+                feed.appendChild(feedItem);
+               
+            });
+        }
+
+        function addNews() {
+            const title = document.getElementById('newsTitle').value;
+            const description = document.getElementById('newsDescription').value;
+            const type = document.getElementById('newsType').value;
+            const fileInput = document.getElementById('newsFile');
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            if (title && description) {
+                reader.onload = function(e) {
+                    const newNews = { title, description, file: e.target.result };
+                    let data = JSON.parse(localStorage.getItem(type + 'Data')) || [];
+                    data.push(newNews);
+                    localStorage.setItem(type + 'Data', JSON.stringify(data));
+                    renderFeed(data);
+                    document.getElementById('newsTitle').value = '';
+                    document.getElementById('newsDescription').value = '';
+                    fileInput.value = '';
+                    document.getElementById('preview').innerHTML = '';
+                }
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    const newNews = { title, description, file: null };
+                    let data = JSON.parse(localStorage.getItem(type + 'Data')) || [];
+                    data.push(newNews);
+                    localStorage.setItem(type + 'Data', JSON.stringify(data));
+                    renderFeed(data);
+                    document.getElementById('newsTitle').value = '';
+                    document.getElementById('newsDescription').value = '';
+                }
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        }
+
+        function previewFile() {
+            const preview = document.getElementById('preview');
+            const file = document.getElementById('newsFile').files[0];
+            const reader = new FileReader();
+
+            reader.addEventListener('load', function() {
+                const result = reader.result;
+                preview.innerHTML = '';
+                if (result.startsWith('data:image')) {
+                    const img = document.createElement('img');
+                    img.src = result;
+                    img.style.maxWidth = '100%';
+                    preview.appendChild(img);
+                }
+            });
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.innerHTML = '';
+            }
+        }
+
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                const tabName = tab.getAttribute('data-tab');
+                if (tabName === 'news') {
+                    renderFeed(JSON.parse(localStorage.getItem('noticiaData')) || newsData);
+                } else if (tabName === 'events') {
+                    renderFeed(JSON.parse(localStorage.getItem('eventoData')) || eventsData);
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedNewsData = JSON.parse(localStorage.getItem('noticiaData')) || newsData;
+            renderFeed(storedNewsData);
+        });
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            if (query === 'newsall') {
+                const allNewsData = [...(JSON.parse(localStorage.getItem('noticiaData')) || newsData), ...(JSON.parse(localStorage.getItem('eventoData')) || eventsData)];
+                renderFeed(allNewsData);
+            } else if (query === 'newsmaster') {
+                document.getElementById('addNewsForm').style.display = 'block';
+            }
+        }
+          document.getElementById('search').addEventListener('input', function() {
+    let query = this.value.toLowerCase();
+    let newsItems = document.querySelectorAll('.news-item');
+    let newsContainer = document.getElementById('newsContainer');
+    let noResults = document.getElementById('noResults');
+
+    let sortedItems = Array.from(newsItems).sort((a, b) => {
+        let dateA = new Date(a.querySelector('.date').textContent);
+        let dateB = new Date(b.querySelector('.date').textContent);
+        return dateB - dateA;
+    });
+
+    let found = false;
+    newsContainer.innerHTML = '';
+
+    sortedItems.forEach(item => {
+        let title = item.querySelector('h2').textContent.toLowerCase();
+        let content = item.querySelector('p').textContent.toLowerCase();
+        if (title.includes(query) || content.includes(query)) {
+            newsContainer.appendChild(item);
+            found = true;
+        }
+    });
+
+    if (!found) {
+        noResults.style.display = 'block';
+    } else {
+        noResults.style.display = 'none';
+    }
+});
+
+document.querySelectorAll('.news-item').forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('expanded');
+    });
+});
+           
+    </script>
+    </div>
+     <div class="section" id="historia">
+            <div class="historiac">
+  <h4>História do Município de Quilengues</h4>
+<p>
+O município de Quilengues está localizado na província da Huíla, em Angola. Fundado pelos portugueses em 1870, Quilengues possui uma rica história marcada pela diversidade cultural e pelas tradições locais.
+</p>
+<p>
+Ao longo dos anos, Quilengues desenvolveu-se como um importante centro agrícola, comercial e de criação de gado. A agricultura é uma das principais atividades econômicas, com a produção de milho, feijão, mandioca e batata-doce. O município também se destaca pela criação de gado bovino, ovino e caprino.
+</p>
+<p>
+Durante o período colonial, Quilengues teve um papel significativo na economia da região, sendo um ponto estratégico para o comércio e o transporte de mercadorias. Após a independência de Angola em 1975, o município passou por diversas transformações, com o foco no desenvolvimento urbano e na melhoria da infraestrutura.
+</p>
+<p>
+Atualmente, Quilengues continua a crescer e prosperar, mantendo suas tradições culturais e fortalecendo sua economia local. O município é conhecido por sua hospitalidade e pela diversidade de sua população, que inclui grupos etnolinguísticos como os Nyaneka, Muchilengue Humbi, Muchilengue Musso e Ovimbundu.
+</p>
+<p>
+Quilengues representa um exemplo de resiliência e progresso, mantendo viva sua história e identidade enquanto avança rumo ao futuro.
+</p>
+<h4>Administradores e Governantes de Quilengues</h4>
+<p>
+Ao longo dos anos, Quilengues teve diversos administradores e governantes que contribuíram para o desenvolvimento do município. Um dos administradores mais recentes foi Adriano Alberto Pedro, que implementou programas de combate à pobreza e fomento à criação de animais. Ele destacou a importância de empoderar as famílias vulneráveis e promover a cultura da criação de animais para combater a fome e a pobreza.
+</p>
+<p>
+Outro administrador notável foi Salomão Agostinho, que liderou importantes estudos históricos e culturais para a proposta de uma data efeméride do município. Ele enfatizou a necessidade de revelar as potencialidades econômicas, culturais e sociais de Quilengues para o benefício dos programas concebidos para o município.
+</p>
+<p>
+O atual administrador, Adriano Alberto Pedro, continua a trabalhar incansavelmente para melhorar a qualidade de vida dos habitantes de Quilengues. Sob sua liderança, o município tem implementado projetos de desenvolvimento agrícola e de criação de animais, visando combater a pobreza e promover a sustentabilidade. Ele também tem se concentrado na melhoria da infraestrutura, incluindo a construção de estradas e a modernização de serviços públicos.
+</p>
+<p>
+Esses líderes, juntamente com outros administradores e governantes ao longo dos anos, desempenharam um papel crucial na transformação e desenvolvimento de Quilengues, garantindo um futuro promissor para seus habitantes.
+</p>
+            </div>
+      </div>
+
+
+  <div class="section" id="contato">
+        <h2>Contato</h2>
+        <div class="contact-section">
+            <div class="contact-info">
+                <p>Endereço: Rua Principal, 123, Quilengues, Huíla, Angola</p>
+                <p>Telefone: <a href="tel:+244123456789">+244 123 456 789</a></p>
+                <p>Envie um Email: <a href="mailto:contato@quilengues.gov.ao">contato@quilengues.gov.ao</a></p>
+                <div class="social-icons">
+                    <a href="https://https://www.facebook.com/Administração Municipal de Quilengues" target="_blank">facebook</a>
+                    <a href="https://www.twitter.com/quilengues" target="_blank">X</a>
+                    <a href="https://www.instagram.com/quilengues" target="_blank">Instagram</a>
+                    <a href="https://www.linkedin.com/quilengues" target="_blank">linkedin</a>
+                </div>
+            </div>
+
+            <h3>Localização</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15677.107189208179!2d13.9996821!3d-14.0586805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1bb4bd50c1e7643b%3A0xb1635f3d6735d749!2sQuilengues%2C%20Angola!5e0!3m2!1sen!2s!4v1689820593923!5m2!1sen!2s"></iframe>
+        </div>
+    </div>
+      
+<footer>
+    <p>&copy; 2024 Daniel k. k. Binga. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    function toggleSidebar(event) {
+        event.stopPropagation();
+        var sidebar = document.getElementById("mySidebar");
+        if (sidebar.style.width === "250px") {
+            sidebar.style.width = "0";
+        } else {
+            sidebar.style.width = "250px";
+        }
+    }
+
+    function closeSidebar(event) {
+        var sidebar = document.getElementById("mySidebar");
+        if (event.target.closest('#mySidebar') === null && event.target.closest('.openbtn') === null) {
+            sidebar.style.width = "0";
+        }
+    }
+
+    function showSection(sectionId) {
+        var sections = document.querySelectorAll('.section');
+        sections.forEach(function(section) {
+            section.style.display = 'none'; // Esconder todas as seções
+        });
+        var selectedSection = document.getElementById(sectionId);
+        selectedSection.style.display = 'block'; // Mostrar a seção selecionada
+        toggleSidebar(event); // Fechar a barra lateral após a seleção
+    }
+
+    // Mostrar a seção "Introdução" por padrão ao carregar a página e manter a barra lateral oculta
+    window.onload = function() {
+        showSection('intro');
+        document.getElementById("mySidebar").style.width = "0";
+
+    }
+    //document.onload=print();// codigo de criar um pdf para imprimir ou guardar
+</script>
+
+</body>
+</html>
